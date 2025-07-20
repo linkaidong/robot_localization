@@ -1,0 +1,11 @@
+<launch>
+
+    <!-- 使用bag的时间戳 -->
+    <param name="use_sim_time" value="false" />
+    <node name="scan_to_map" pkg="ucar_localization" type="scan_to_map_location_node" output="screen"  respawn="true" >
+        <rosparam file="$(find ucar_localization)/config/icp_params.yaml" command="load"/>
+    </node>
+
+    <include file="$(find ucar_localization)/launch/robot_localization_icp.launch"/>
+
+</launch>
