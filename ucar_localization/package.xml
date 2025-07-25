@@ -20,7 +20,6 @@
   <depend>tf2_ros</depend>
   <depend>pcl_conversions</depend>
   <depend>pcl_ros</depend>
-  <depend>ucar_msgs</depend>
   <export>
     <!-- Other tools can request additional information be placed here -->
   </export>

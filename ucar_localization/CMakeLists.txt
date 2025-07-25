@@ -18,7 +18,6 @@ set(ROS_DEPENDENCIES
         tf2_ros
         pcl_conversions
         pcl_ros
-        ucar_msgs
         )
 
 find_package(catkin REQUIRED COMPONENTS ${ROS_DEPENDENCIES})

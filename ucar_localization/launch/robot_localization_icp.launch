@@ -1,6 +1,6 @@
 <launch>
 
-  <param name="use_sim_time" value="false" />
+  <param name="use_sim_time" value="true" />
   <!-- robot_localization EKF node for the map frame -->
   <node pkg="robot_localization" type="ekf_localization_node" name="robot_localization_ekf_node_map"  clear_params="true" respawn="true" output="log">
     <!-- <remap from="rosout" to="/rosout_disabled" /> -->

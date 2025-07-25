@@ -131,9 +131,10 @@ private:
         pcl::IterativeClosestPoint<PointT, PointT> icp;
         icp.setInputSource(input_cloud);
         icp.setInputTarget(target_cloud);
-        icp.setMaximumIterations(1);
         icp.setTransformationEpsilon(1e-6);
+
         icp.setMaxCorrespondenceDistance(15);
+        icp.setMaximumIterations(1);
 
         PointCloudT final;
         icp.align(final);
@@ -145,7 +146,7 @@ private:
 
     // Update the pose and publish initial pose
     void updatePose(const Eigen::Matrix4f& matrix4transform, float score, const sensor_msgs::LaserScan::ConstPtr& scan_msg) {
-        if (score < prev_score) {
+        if (score > 0.0004) {
             prev_score = score;
             T_prev = matrix4transform;
 
@@ -168,6 +169,7 @@ private:
             pose_msg.pose.pose.orientation.w = quat.w();
 
             initial_pose_pub.publish(pose_msg);
+            std::cout<< "prev_score: " << prev_score << std::endl;
         }
     }
 
